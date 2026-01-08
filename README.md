@@ -1,2 +1,2 @@
-# GROZD
-groozd diplomics
+# Diplom
+
