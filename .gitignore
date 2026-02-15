@@ -1,0 +1,82 @@
+########################
+# Игнорируем целые папки
+########################
+
+# Твои большие/лишние каталоги
+data/
+models/
+important_trash/
+xyz2smiles/
+.jupyter/
+
+# --- ИСПРАВЛЕННЫЙ БЛОК binding_core ---
+# Сначала говорим Git: "Игнорируй всё внутри binding_core"
+binding_core/*
+
+# ТЕПЕРЬ ЯВНО РАЗРЕШАЕМ ПАПКИ И ИХ СОДЕРЖИМОЕ (ЭТО ВАЖНО!)
+!binding_core/src/
+!binding_core/src/**
+
+!binding_core/scripts/
+!binding_core/scripts/**
+
+!binding_core/configs/
+!binding_core/configs/**
+
+# Разрешаем конкретные файлы в корне binding_core
+!binding_core/README.md
+!binding_core/requirements.txt
+
+# Снова запрещаем конкретный скрипт ВНУТРИ разрешенной папки
+binding_core/scripts/audit_lactamase
+# -------------------------------------
+
+########################
+# Python / артефакты
+########################
+
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+.env
+.venv
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+.ipynb_checkpoints/
+
+.vscode/
+.idea/
+*.code-workspace
+
+logs/
+*.log
+wandb/
+clearml/
+temp_upload/
+temp/
+tmp/
+
+# Модели и чекпоинты
+*.pt
+*.pth
+*.ckpt
+experiments/
+runs/
+
+# LMDB / базы
+*.lmdb
+*.mdb
+*.lock
+
+# Плоты и вывод
+*.png
+*.pdf
+*.svg
+inference_results*/
+eda_results/

@@ -1,0 +1,26 @@
+experiment_name: "MLP_Fusion_Emb_v1"
+project_name: "MSU-Baseline"
+
+paths:
+  # Путь к НОВОЙ базе эмбеддингов
+  embeddings_db_path: "../data/baseline/db_embeddings"
+  # Сплиты (train/val/test индексы) остаются те же
+  splits_dir: "../data/baseline/splits"
+  save_dir: "experiments/"
+
+model:
+  type: "mlp"
+  # Размер входного вектора: ProtBERT (1024) + ChemBERTa (768) = 1792
+  input_dim: 1792
+  hidden_dim: 1024  # Можно поиграть: 512, 1024, 2048
+  dropout: 0.2      # Чуть повыше, так как модель мощная
+  layers: 3         # Количество скрытых слоев (см. код модели)
+
+training:
+  batch_size: 256      # Теперь можно ставить БОЛЬШОЙ батч! (было 32)
+  num_workers: 4       # Данные легкие, воркеры справятся быстро
+  learning_rate: 0.0003 # Для MLP обычно чуть ниже, чем 1e-3
+  epochs: 50           # Обучается мгновенно, можно ставить много
+  early_stopping: 10   # Остановить, если не улучшается 10 эпох
+  device: "cuda"
+  log_step_interval: 100

@@ -1,0 +1,34 @@
+experiment_name: "Lactamase_FT_Curated_bcl2"
+
+paths:
+  data_root: "../data/baseline"
+  
+  # Базовая модель — наш свежий претрейн на curated
+  base_model_path: "experiments/MLP_Fusion_Emb_Curated_v_ideal_daniil_ubivat/best_model.pt"
+  
+  embeddings_db: "../data/baseline/db_embeddings"
+  index_csv: "../data/baseline/index.csv"
+  
+  # Путь к сплитам лактамаз (из папки all_wo_bl_curated/lactamase_finetune)
+  splits_dir: "../data/baseline/curated_splits/expert_finetune/bcl2_family"
+  train_ids: "train_indices.csv"
+  val_ids: "val_indices.csv"
+  test_ids: "test_indices.csv"
+  
+  save_dir: "experiments"
+
+training:
+  epochs: 50
+  batch_size: 128        # Уменьшим батч, чтобы обновляться чаще
+  learning_rate: 0.00001  # 1e-4 (было 5e-5 - слишком медленно выходим из плато)
+  weight_decay: 1e-5     # 1e-5 (было 1e-3 - это убило модель!)
+  early_stopping_patience: 3
+  num_workers: 0         # Оставляем 0 для стабильности
+  device: "cuda"
+
+model:
+  dropout: 0.1
+
+clearml:
+  project_name: "MSU-Baseline"
+  task_name: "Finetune_Lactamase_Curated_bcl2"

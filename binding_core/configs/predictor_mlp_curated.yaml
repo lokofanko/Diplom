@@ -1,0 +1,35 @@
+experiment_name: "Fusion_DistilProtBERT_NoWorkers_cleared_gold"
+project_name: "MSU-Baseline"
+
+paths:
+  # База эмбеддингов (та же, что и раньше, если ты не пересчитал)
+  embeddings_db_path: "../data/baseline/db_embeddings"
+
+  # Индекс (тот же index.csv, он общий)
+  index_csv: "../data/baseline/index.csv"
+
+  # НОВЫЕ сплиты
+  splits_dir: "../data/baseline/curated_splits/gold_standard_95_split"
+
+  # Куда сохранять новые эксперименты
+  save_dir: "experiments"
+
+experiment_name: "MLP_Fusion_Emb_Curated_gold_daniil_ubivat"
+
+model:
+  input_dim: 1792        # Prot (1024) + Chem (768)
+  hidden_dim: 1024
+  dropout: 0.1
+
+training:
+  device: "cuda"
+  epochs: 50
+  batch_size: 1024
+  learning_rate: 0.001
+  weight_decay: 1e-5
+  early_stopping: 5      # <- переименовать
+  num_workers: 4
+
+clearml:
+  project_name: "Diplom_Binding_Affinity"
+  task_name: "Train_MLP_Curated"
