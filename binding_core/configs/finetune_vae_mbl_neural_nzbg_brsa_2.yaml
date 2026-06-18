@@ -1,0 +1,38 @@
+experiment:
+  name: MBL_Neural_nZBG_BRSA_2
+target:
+  name: Metallo-beta-lactamase type 2
+  uniprot_id: C7C422
+  sequence: MELPNIMHPVAKLSTALAAALMLSGCMPGEIRPTIGQQMETGDQRFGDLVFRQLAPNVWQHTSYLDMPGFGAVASNGLIVRDGGRVLVVDTAWTDDQTAQILNWIKQEINLPVALAVVTHAHQDKMGGMDALHAAGIATYANALSNQLAPQEGMVAAQHSLTFAANGWVEPATAPNFGPLKVFYPGPGHTSDNITVGIDGTDIAFGGCLIKDSKAKSLGNLGDADTEHYAASARAFGAAFPKASMIVMSHSAPDSRAAITHTARMADKLR
+  prior_min_pIC50: 6.0
+paths:
+  vae_dir: experiments/moses_vae
+  predictor_checkpoint: experiments/MLP_Fusion_Emb_Curated_gold_daniil_ubivat/best_model.pt
+  prot_bert_path: ../models/pretrained/protbert
+  chem_bert_path: ../models/pretrained/chemberta
+  index_csv: ../data/baseline/index.csv
+  db_processed: ../data/baseline/db
+  split_indices: ../data/baseline/curated_splits/vae_mbl_gold/all_mbl_unique_molecules.csv
+  save_dir: experiments/VAE_MBL_Neural_nZBG_BRSA/nzbg_2
+tokenizer:
+  mol_max_len: 128
+  prot_max_len: 512
+generation:
+  enabled: true
+  target_count: 1000
+  min_pIC50: 8.0
+  output_file: data/generated/MBL_NEURAL_NZBG_BRSA_2_HITS.csv
+  max_steps: 20000
+training:
+  batch_size: 64
+  learning_rate: 4.0e-05
+  beta_prior: 0.8
+  beta_rl: 4.0
+  clip_grad: 1.0
+  save_every: 500
+clearml:
+  project_name: MSU-Baseline
+  task_name: MBL_Neural_nZBG_BRSA_2
+reward:
+  target_n_zbg: 2
+  near_miss_zbg_reward: 0.05

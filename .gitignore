@@ -80,3 +80,9 @@ runs/
 *.svg
 inference_results*/
 eda_results/
+
+# Local or generated files inside whitelisted source folders
+binding_core/scripts/archive_temp_scripts/
+binding_core/scripts/inference_results*/
+binding_core/scripts/fpscores.pkl.gz
+binding_core/scripts/.ipynb_checkpoints/
