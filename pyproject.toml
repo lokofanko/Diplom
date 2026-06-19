@@ -2,13 +2,13 @@
 name = "ndm1-diplom-tools"
 version = "0.1.0"
 description = "Utilities for NDM-1 ensemble AutoDock4Zn docking and pseudo-center geometry."
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13"
 dependencies = [
     "gemmi>=0.6",
     "meeko>=0.6.1",
-    "numpy>=1.26",
-    "pandas>=2.0",
-    "rdkit>=2023.9",
+    "numpy>=1.26,<2",
+    "pandas>=2.0,<3",
+    "rdkit==2023.9.6",
     "scipy>=1.11",
 ]
 
