@@ -73,6 +73,7 @@ runs/
 *.lmdb
 *.mdb
 *.lock
+!uv.lock
 
 # Плоты и вывод
 *.png
