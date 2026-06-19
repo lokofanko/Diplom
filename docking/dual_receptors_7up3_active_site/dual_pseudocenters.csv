@@ -1,0 +1,9 @@
+receptor,alignment_ca,alignment_rmsd,pseudo_name,template_ligand_atom,x,y,z,zn1_distance,zn2_distance
+ndm1_ensemble_c01.pdbqt,6,0.3101,T1,N4,7.7624,-4.9491,4.3191,1.7731,2.322
+ndm1_ensemble_c01.pdbqt,6,0.3101,T2,N3,9.9213,-3.3661,2.3308,4.1461,2.5379
+ndm1_ensemble_c02.pdbqt,6,0.3175,T1,N4,7.6824,-5.0021,4.2357,1.7713,2.247
+ndm1_ensemble_c02.pdbqt,6,0.3175,T2,N3,9.8249,-3.4328,2.219,4.1725,2.3497
+ndm1_ensemble_c03.pdbqt,6,0.3077,T1,N4,7.7337,-4.7929,4.2369,2.0056,1.9197
+ndm1_ensemble_c03.pdbqt,6,0.3077,T2,N3,9.8638,-3.2149,2.2138,4.3598,2.3019
+ndm1_ensemble_c04.pdbqt,6,0.3239,T1,N4,7.7682,-4.9079,4.322,1.8069,2.3394
+ndm1_ensemble_c04.pdbqt,6,0.3239,T2,N3,9.9156,-3.3602,2.2937,4.0282,2.5663
