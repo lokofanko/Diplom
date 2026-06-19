@@ -7,9 +7,9 @@ dependencies = [
     "gemmi>=0.6",
     "meeko>=0.6.1",
     "numpy>=1.26,<2",
-    "pandas>=2.0,<3",
+    "pandas==2.2.3",
     "rdkit==2023.9.6",
-    "scipy>=1.11",
+    "scipy==1.11.4",
 ]
 
 [tool.uv]
